@@ -1,0 +1,13 @@
+{
+  "name": "BETTER — Become Better. Intentionally.",
+  "short_name": "BETTER",
+  "description": "An intelligent personal system for decisions, goals and daily action.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#08090b",
+  "theme_color": "#08090b",
+  "orientation": "portrait-primary",
+  "icons": [
+    {"src":"/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}
+  ]
+}

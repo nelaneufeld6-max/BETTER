@@ -1,0 +1,1 @@
+{"name":"better-mvp","version":"1.0.0","private":true,"scripts":{"serve":"python3 -m http.server 3000","check":"node --check app.js","build":"node build.mjs"},"dependencies":{}}
