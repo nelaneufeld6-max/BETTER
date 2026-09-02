@@ -13,3 +13,4 @@ The current MVP data remains local unless a database sync layer is added. Authen
 ## Accounts
 
 Supabase authentication is configured for the connected BETTER project. Users can create a free email/password account and sign in. The current MVP still keeps the main personal-system data in browser local storage; cloud synchronization is the next backend step.
+Deployment trigger
