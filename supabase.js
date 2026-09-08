@@ -1,7 +1,7 @@
 /* BETTER Supabase integration. Uses only the public/publishable browser key. */
 let client=null;
 function accountConfigured(){return !!(window.BETTER_CONFIG?.SUPABASE_URL&&window.BETTER_CONFIG?.SUPABASE_ANON_KEY&&window.supabase)}
-async function initAccount(){if(!accountConfigured())return null;if(!client)client=window.supabase.createClient(window.BETTER_CONFIG.SUPABASE_URL,window.BETTER_CONFIG.SUPABASE_ANON_KEY);return client}
+async function initAccount(){if(!accountConfigured())return null;if(!client)client=window.supabase.createClient(window.BETTER_CONFIG.SUPABASE_URL,window.BETTER_CONFIG.SUPABASE_ANON_KEY,{auth:{flowType:'pkce',autoRefreshToken:true,persistSession:true,detectSessionInUrl:true}});return client}
 async function getSession(){const c=await initAccount();if(!c)return null;const {data}=await c.auth.getSession();return data.session}
 async function signUp(email,password,name=''){const c=await initAccount();if(!c)throw Error('Accounts are not configured yet.');return c.auth.signUp({email,password,options:{data:{name}}})}
 async function signIn(email,password){const c=await initAccount();if(!c)throw Error('Accounts are not configured yet.');return c.auth.signInWithPassword({email,password})}

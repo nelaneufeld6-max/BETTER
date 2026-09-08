@@ -1,16 +1,33 @@
 # BETTER Public Beta — Accounts Edition
 
-This is the existing BETTER MVP upgraded with optional real user accounts using Supabase Auth. The application remains free and local-first when account credentials are not configured.
+BETTER is a local-first personal improvement system for goals, daily actions, decisions, beauty and fitness. The public beta also supports optional real email/password accounts and cloud synchronization through Supabase.
 
-## Configure accounts
-1. Create a free Supabase project.
+## Accounts and cloud sync
+1. Create or use the connected Supabase project.
 2. Enable Email/Password authentication.
-3. Copy `config.example.js` to `config.js` and set the project URL and anon/public key.
-4. Deploy the project. Never use a Supabase service-role key in the browser.
+3. `config.js` contains only the browser-safe Supabase publishable/anon key; never put a Supabase service-role key in browser code.
+4. Deploy the project.
 
-The current MVP data remains local unless a database sync layer is added. Authentication itself is real; cloud persistence of the full BETTER profile should be the next backend step.
+When a user is signed in, BETTER syncs the main personal-system state to `user_state` and the display name to `profiles`. Row-level security restricts those records to their owning account.
 
-## Accounts
+## Data controls
+Users can export local BETTER data from Profile, delete local browser data, log out, reset their password, and request account/cloud-data deletion from the account controls.
 
-Supabase authentication is configured for the connected BETTER project. Users can create a free email/password account and sign in. The current MVP still keeps the main personal-system data in browser local storage; cloud synchronization is the next backend step.
-Deployment trigger
+## Current limitations
+The MVP does not perform live web research or connect live shopping/product-review databases. Beauty products, decisions and other example information are demo content unless a future research layer is connected.
+
+For a commercial launch, review the privacy notice, terms, data retention, analytics and account-deletion process with qualified legal counsel.
+
+## BETTER Premium Preview
+
+This build adds a Premium development preview without billing or paid AI API calls.
+
+Included:
+- Premium dashboard and feature hub
+- Local AI Personal Coach test mode (no external AI requests)
+- Weekly Intelligence report generator
+- Personal progress/consistency dashboard
+- Advanced Goals, Fitness, Beauty and Decision Lab entry points
+- `PREMIUM PREVIEW` developer badge
+
+Billing/subscriptions and live AI API integration are intentionally not connected yet.
